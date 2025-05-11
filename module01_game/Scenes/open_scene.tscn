@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://07vic0ktprrc"]
+
+[ext_resource type="Script" uid="uid://b1tn85oloe8a" path="res://Scripts/open_scene.gd" id="1_xtx2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtx2w"]
+bg_color = Color(0.499509, 0.305555, 0.227737, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d1mrb"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Theme" id="Theme_uv7is"]
+
+[node name="OpenScene" type="CanvasLayer"]
+script = ExtResource("1_xtx2w")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 1166.0
+offset_bottom = 657.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtx2w")
+
+[node name="Welcome" type="RichTextLabel" parent="Panel"]
+material = SubResource("CanvasItemMaterial_d1mrb")
+layout_mode = 0
+offset_left = 286.0
+offset_top = 55.0
+offset_right = 872.0
+offset_bottom = 581.0
+text = "Ronin, the cat, jumped up on the dining room table again. He is determined to dip his paw in every water glass he finds. Can he make it to the other side of the table without getting caught? 
+Help Ronin collect all the water samples and make it to the other side of the table."
+fit_content = true
+tab_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 423.0
+offset_right = 703.0
+offset_bottom = 479.0
+theme = SubResource("Theme_uv7is")
+text = "Press to Start"
+
+[connection signal="pressed" from="Panel/Start" to="." method="_on_start_pressed"]

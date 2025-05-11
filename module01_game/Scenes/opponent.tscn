@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpt4lt6o8jgtn"]
+
+[ext_resource type="Script" uid="uid://o0ombosb7h62" path="res://Scripts/opponent.gd" id="1_lltpv"]
+[ext_resource type="Texture2D" uid="uid://ba0km8umuwfwq" path="res://Assets/stinkbugbig.png" id="2_cafab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwpof"]
+size = Vector2(57, 17)
+
+[node name="opponent" type="CharacterBody2D"]
+script = ExtResource("1_lltpv")
+
+[node name="Stinkbugbig" type="Sprite2D" parent="."]
+position = Vector2(33, -9)
+texture = ExtResource("2_cafab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33, -9)
+shape = SubResource("RectangleShape2D_hwpof")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(34, 0)
+target_position = Vector2(0, 21)

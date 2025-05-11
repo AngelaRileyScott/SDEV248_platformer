@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr7fjmhoob6bd"]
+
+[ext_resource type="PackedScene" uid="uid://dlnyd0bcjmoyt" path="res://Scenes/in_game_button.tscn" id="1_036b0"]
+[ext_resource type="PackedScene" uid="uid://b2cquyg7qdrhq" path="res://Scenes/tile_map_layer.tscn" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://cr3s38o28s4c8" path="res://Scenes/player.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bjbnx6usvjylk" path="res://Scenes/water_ui.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://de3owpp5hs6w" path="res://Scenes/water.tscn" id="4_aqk2v"]
+
+[node name="world" type="Node2D"]
+
+[node name="InGameButton" parent="." instance=ExtResource("1_036b0")]
+offset = Vector2(200, 10)
+transform = Transform2D(1, 0, 0, 1, 200, 10)
+
+[node name="Player" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(64, 1138)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_fj7yv")]
+z_index = 1
+position = Vector2(-1012, -638)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Water_UI" parent="CanvasLayer" instance=ExtResource("3_tlwt5")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Water" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(1229, 1103)
+
+[node name="Water2" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(1591, 1103)
+
+[node name="Water3" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(1952, 1109)

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1qa04jw0u00w"]
+
+[ext_resource type="Script" uid="uid://b1tn85oloe8a" path="res://Scripts/open_scene.gd" id="1_xrucb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtx2w"]
+bg_color = Color(0.499509, 0.305555, 0.227737, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d1mrb"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Theme" id="Theme_uv7is"]
+
+[node name="CloseScene" type="CanvasLayer"]
+script = ExtResource("1_xrucb")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 1166.0
+offset_bottom = 657.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtx2w")
+
+[node name="Finish" type="RichTextLabel" parent="Panel"]
+material = SubResource("CanvasItemMaterial_d1mrb")
+layout_mode = 0
+offset_left = 286.0
+offset_top = 55.0
+offset_right = 872.0
+offset_bottom = 581.0
+text = "Thank you for trying out this game. 
+Stay tuned for more improvements and added features."
+fit_content = true
+tab_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 388.0
+offset_right = 705.0
+offset_bottom = 444.0
+theme = SubResource("Theme_uv7is")
+text = "Press to Restart"
+
+[node name="Quit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 462.0
+offset_right = 705.0
+offset_bottom = 518.0
+theme = SubResource("Theme_uv7is")
+text = "Press to Quit
+"
+
+[connection signal="pressed" from="Panel/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_start_pressed"]
